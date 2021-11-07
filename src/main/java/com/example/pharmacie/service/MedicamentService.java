@@ -15,6 +15,7 @@ public class MedicamentService {
     @Autowired
     private MedicamentRepository medicamentRepository;
 
+    // todo add mapper and extract this code to controllers
     public Medicament addMedicament(MedicamentDto medicamentDto) {
         Medicament medicament = new Medicament();
         medicament.setName(medicamentDto.getName());
