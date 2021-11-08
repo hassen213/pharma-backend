@@ -1,13 +1,14 @@
 package com.example.pharmacie.dto;
 
 import com.example.pharmacie.model.Famille;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.Date;
 
-@Getter @Setter
+@Data
+@NoArgsConstructor @AllArgsConstructor
 public class MedicamentDto {
+    private Long id;
     private String name;
     private Double prix;
     private Date dateEx;

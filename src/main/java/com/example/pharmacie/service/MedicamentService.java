@@ -1,5 +1,7 @@
 package com.example.pharmacie.service;
 
+import com.example.pharmacie.mapper.MedicamentMapper;
+import com.example.pharmacie.model.Famille;
 import com.example.pharmacie.repository.MedicamentRepository;
 import com.example.pharmacie.dto.MedicamentDto;
 import com.example.pharmacie.model.Medicament;
@@ -15,39 +17,25 @@ public class MedicamentService {
     @Autowired
     private MedicamentRepository medicamentRepository;
 
-    // todo add mapper and extract this code to controllers
-    public Medicament addMedicament(MedicamentDto medicamentDto) {
-        Medicament medicament = new Medicament();
-        medicament.setName(medicamentDto.getName());
-        medicament.setPrix(medicamentDto.getPrix());
-        medicament.setDateEx(medicamentDto.getDateEx());
-        medicament.setFamille(medicamentDto.getFamille());
-        medicamentRepository.save(medicament);
-        return medicament;
+    public Medicament addMedicament(Medicament medicament) {
+        return medicamentRepository.save(medicament);
     }
-
-
 
     public List<Medicament> getListMedicament() {
        return medicamentRepository.findAll();
     }
 
-
-
-
-    public Medicament updateMedicament(Long id, MedicamentDto newMedicament){
-        Medicament m ;
-        if (medicamentRepository.findById(id).isPresent()) {
-            Medicament medicament = new Medicament();
-            medicament.setId(id);
-            medicament.setName(newMedicament.getName());
-            medicament.setPrix(newMedicament.getPrix());
-            medicament.setDateEx(newMedicament.getDateEx());
-            medicament.setFamille(newMedicament.getFamille());
-            m = medicamentRepository.save(medicament);
+    public Medicament updateMedicament(Medicament medicament){
+        if (!isMedicamentValid(medicament)) {
+            throw new IllegalArgumentException();
         }
-        else {return null;}
-        return m;
+        return medicamentRepository.save(medicament);
+    }
+
+    private boolean isMedicamentValid(Medicament medicament) {
+        return medicament != null
+                && medicament.getId() != null
+                && medicamentRepository.existsById(medicament.getId());
     }
 
 
