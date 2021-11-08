@@ -26,20 +26,11 @@ public class MedicamentService {
     }
 
     public Medicament updateMedicament(Medicament medicament){
-        if (!isMedicamentValid(medicament)) {
-            throw new IllegalArgumentException();
+        if(medicamentRepository.findById(medicament.getId()).isPresent()) {
+            return medicamentRepository.save(medicament);}
+        else return null;
+
         }
-        return medicamentRepository.save(medicament);
-    }
-
-    private boolean isMedicamentValid(Medicament medicament) {
-        return medicament != null
-                && medicament.getId() != null
-                && medicamentRepository.existsById(medicament.getId());
-    }
-
-
-
 
     public ResponseEntity deleteMedicament(Long id) {
         if(medicamentRepository.findById(id).isPresent()){

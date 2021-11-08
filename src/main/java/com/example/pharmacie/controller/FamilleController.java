@@ -1,12 +1,10 @@
 package com.example.pharmacie.controller;
-
 import com.example.pharmacie.dto.FamilleDto;
 import com.example.pharmacie.mapper.FamilleMapper;
 import com.example.pharmacie.model.Famille;
 import com.example.pharmacie.service.FamilleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,8 +35,4 @@ public class FamilleController {
         Famille famille = familleMapper.toModel(familleDto);
         return familleMapper.toDto(familleService.updateFamille(famille));
     }
-
-
-
-
 }
