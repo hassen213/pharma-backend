@@ -12,13 +12,22 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Stock {
+public class StockMedicament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int quantiteMedicament;
-    @OneToMany(mappedBy = "stock")
+
+    private String name;
+
+    @ManyToOne
+    private Medicament medicament;
+
+    @ManyToOne
+    private Stock stock;
+
+    @OneToMany(mappedBy = "stockMedicament")
     @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
-    private Collection<StockMedicament> StockMedicaments;
+    private Collection<VenteMedicament> venteMedicaments;
+
 
 }

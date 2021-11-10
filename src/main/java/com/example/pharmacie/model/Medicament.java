@@ -1,10 +1,10 @@
 package com.example.pharmacie.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
-import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 
@@ -21,8 +21,11 @@ public class Medicament {
     @Column(name = "prix", nullable = false)
     private Double prix;
     @Column(name = "dateEx", nullable = false)
-    private Date dateEx;
+    private LocalDateTime dateEx;
     @ManyToOne
     private Famille famille;
+    @OneToMany(mappedBy = "medicament")
+    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
+    private Collection<StockMedicament> StockMedicaments;
 
 }

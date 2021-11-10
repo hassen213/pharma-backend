@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 
@@ -14,5 +15,10 @@ import java.util.Date;
 public class VenteDto {
 
     private Long id;
-    private Date dateDeVente;
+    private LocalDateTime dateDeVente;
+    private Long medId;
+    private String medName;
+    private String stockId;
+    private String stockName;
+
 }

@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
 
@@ -18,8 +19,11 @@ public class Vente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date dateDeVente;
 
+    private LocalDateTime dateDeVente;
 
+    @OneToMany(mappedBy = "vente")
+    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
+    private Collection<VenteMedicament> venteMedicaments;
 
 }
