@@ -21,8 +21,7 @@ public class MedicamentController {
     private MedicamentService medicamentService;
     @Autowired
     private MedicamentMapper medicamentMapper;
-    @Autowired
-    private MedicamentRepository medicamentRepository;
+
 
     @PostMapping
     public MedicamentDto addMedicament(@RequestBody MedicamentDto medicamentDto){
