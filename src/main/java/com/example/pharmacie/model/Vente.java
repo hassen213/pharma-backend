@@ -19,9 +19,7 @@ public class Vente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Date dateDeVente;
-    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
-    @OneToMany(mappedBy = "vente")
-    private Collection<Medicament> medicaments;
+
 
 
 }

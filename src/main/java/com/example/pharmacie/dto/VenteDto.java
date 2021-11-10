@@ -15,5 +15,4 @@ public class VenteDto {
 
     private Long id;
     private Date dateDeVente;
-    private Collection<Long> medicamentIds;
 }

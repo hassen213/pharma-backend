@@ -11,4 +11,5 @@ public class StockDto {
 
     private int id;
     private int quantiteMedicament;
+
 }

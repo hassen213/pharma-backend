@@ -11,17 +11,17 @@ import java.util.stream.Collectors;
 
 @Component
 public class DependencyResolver {
-    public static DependencyResolver instance;
-    @PostConstruct
-    public void init(){
-        instance = this;
-    }
-    @Autowired
-    private MedicamentRepository medicamentRepository;
-    public Collection<Medicament> resolveByIds(Collection<Long> ids) {
-        return ids.stream()
-                .map(id -> medicamentRepository.findById(id).orElseThrow(() ->
-                        new IllegalArgumentException(String.format("Medicamenent with id %d does not exist", id))
-                )).collect(Collectors.toList());
-    }
+//    public static DependencyResolver instance;
+//    @PostConstruct
+//    public void init(){
+//        instance = this;
+//    }
+//    @Autowired
+//    private MedicamentRepository medicamentRepository;
+//    public Collection<Medicament> resolveByIds(Collection<Long> ids) {
+//        return ids.stream()
+//                .map(id -> medicamentRepository.findById(id).orElseThrow(() ->
+//                        new IllegalArgumentException(String.format("Medicamenent with id %d does not exist", id))
+//                )).collect(Collectors.toList());
+//    }
 }

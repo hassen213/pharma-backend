@@ -24,9 +24,5 @@ public class Medicament {
     private Date dateEx;
     @ManyToOne
     private Famille famille;
-    @ManyToOne
-    private Stock stock;
-    @ManyToOne
-    private Vente vente;
 
 }

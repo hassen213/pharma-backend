@@ -12,10 +12,10 @@ public interface VenteMapper {
     Vente toModel(VenteDto venteDto);
     VenteDto toDto(Vente vente);
 
-    @AfterMapping
-    default void resolveMedicaments(VenteDto dto, @MappingTarget Vente vente) {
-        vente.setMedicaments(
-                DependencyResolver.instance
-                        .resolveByIds(dto.getMedicamentIds()));
-    }
+//    @AfterMapping
+//    default void resolveMedicaments(VenteDto dto, @MappingTarget Vente vente) {
+//        vente.setMedicaments(
+//                DependencyResolver.instance
+//                        .resolveByIds(dto.getMedicamentIds()));
+//    }
 }
