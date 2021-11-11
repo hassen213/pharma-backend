@@ -13,19 +13,21 @@ import javax.annotation.PostConstruct;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-@Component
-public class DependencyResolver {
-    public static DependencyResolver instance;
-    @PostConstruct
-    public void init(){
-        instance = this;
-    }
 
-    @Autowired
-    private FamilleRepository familleRepository;
 
-    public Famille familleById(Long id) {
-        return familleRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException());
-    }
-}
+//@Component
+//public class DependencyResolver {
+//    public static DependencyResolver instance;
+//    @PostConstruct
+//    public void init(){
+//        instance = this;
+//    }
+//
+//    @Autowired
+//    private FamilleRepository familleRepository;
+//
+//    public Famille familleById(Long id) {
+//        return familleRepository.findById(id)
+//                .orElseThrow(() -> new IllegalArgumentException());
+//    }
+//}

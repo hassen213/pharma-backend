@@ -19,29 +19,31 @@ import java.util.stream.Collectors;
 public class MedicamentController {
     @Autowired
     private MedicamentService medicamentService;
-    @Autowired
-    private MedicamentMapper medicamentMapper;
 
 
-    @PostMapping
-    public MedicamentDto addMedicament(@RequestBody MedicamentDto medicamentDto){
-        Medicament medicament = medicamentMapper.toModel(medicamentDto);
-        return medicamentMapper.toDto(medicamentService.addMedicament(medicament));
-    }
-
-    @GetMapping
-    public List<MedicamentDto> getListMedicament(){
-        return medicamentService.getListMedicament().stream()
-                .map(medicamentMapper::toDto)
-                .collect(Collectors.toList());
-    }
-
-
-    @PutMapping
-    public MedicamentDto updateMedicament(@RequestBody MedicamentDto medicamentDto) {
-        Medicament medicament = medicamentMapper.toModel(medicamentDto);
-        return medicamentMapper.toDto(medicamentService.updateMedicament(medicament));
-    }
+//    @Autowired
+//    private MedicamentMapper medicamentMapper;
+//
+//
+//    @PostMapping
+//    public MedicamentDto addMedicament(@RequestBody MedicamentDto medicamentDto){
+//        Medicament medicament = medicamentMapper.toModel(medicamentDto);
+//        return medicamentMapper.toDto(medicamentService.addMedicament(medicament));
+//    }
+//
+//    @GetMapping
+//    public List<MedicamentDto> getListMedicament(){
+//        return medicamentService.getListMedicament().stream()
+//                .map(medicamentMapper::toDto)
+//                .collect(Collectors.toList());
+//    }
+//
+//
+//    @PutMapping
+//    public MedicamentDto updateMedicament(@RequestBody MedicamentDto medicamentDto) {
+//        Medicament medicament = medicamentMapper.toModel(medicamentDto);
+//        return medicamentMapper.toDto(medicamentService.updateMedicament(medicament));
+//    }
 
     @DeleteMapping
     public ResponseEntity deleteMedicament(@PathVariable Long id){
