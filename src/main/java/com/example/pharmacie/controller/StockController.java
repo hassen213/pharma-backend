@@ -61,6 +61,13 @@ public class StockController {
         stockMedicament.setQuantity(stockMedicament.getQuantity() + dto.getQuantity());
         return stockMedicamentMapper.toDto(stockMedicamentService.save(stockMedicament));
     }
+
+    @GetMapping("/get/stock/medicament/list")
+    public List<StockMedicamentDto> getListStockMed(){
+        return stockMedicamentService.getListStockMed().stream()
+                .map(stockMedicamentMapper::toDto)
+                .collect(Collectors.toList());
+    }
 }
 
 //moi
