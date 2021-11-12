@@ -1,6 +1,7 @@
 package com.example.pharmacie.controller;
 
 import com.example.pharmacie.dto.MedicamentDto;
+//import com.example.pharmacie.mapper.MedicamentMapper;
 import com.example.pharmacie.mapper.MedicamentMapper;
 import com.example.pharmacie.model.Medicament;
 import com.example.pharmacie.repository.MedicamentRepository;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +21,28 @@ import java.util.stream.Collectors;
 public class MedicamentController {
     @Autowired
     private MedicamentService medicamentService;
+    @Autowired
+    private MedicamentMapper medicamentMapper;
+
+    @PostMapping
+    public MedicamentDto addMedic(@RequestBody MedicamentDto medicamentDto){
+        Medicament medicament = medicamentMapper.toModel(medicamentDto);
+        return medicamentMapper.toDto(medicamentService.addMedic(medicament));
+    }
+        @GetMapping
+    public List<MedicamentDto> getListMedicament(){
+        List<MedicamentDto> medicamentDtos = new ArrayList<>();
+            List<Medicament> listMedicament = medicamentService.getListMedicament();
+            for (int i = 0; i < listMedicament.size(); i++) {
+                medicamentDtos.add(medicamentMapper.toDto(listMedicament.get(i)));
+            }
+            return medicamentDtos;
+//
+//            return medicamentService.getListMedicament().stream()
+//                    .map(m -> medicamentMapper.toDto(m))
+//                    .collect(Collectors.toList());
+    }
+
 
 
 //    @Autowired

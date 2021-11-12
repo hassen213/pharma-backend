@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class StockService {
@@ -19,7 +20,12 @@ public class StockService {
         return stockRepository.save(stock);
     }
 
+
     public List<Stock> get(){
         return stockRepository.findAll();
+    }
+
+    public Optional<Stock> findById(Long stockId) {
+        return stockRepository.findById(stockId);
     }
 }

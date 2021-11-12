@@ -2,6 +2,7 @@ package com.example.pharmacie.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,12 +13,13 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class StockMedicament {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
+    private int quantity;
 
     @ManyToOne
     private Medicament medicament;
@@ -25,9 +27,8 @@ public class StockMedicament {
     @ManyToOne
     private Stock stock;
 
-    @OneToMany(mappedBy = "stockMedicament")
-    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
-    private Collection<VenteMedicament> venteMedicaments;
-
-
 }
+
+//    @OneToMany(mappedBy = "stockMedicament")
+//    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
+//    private Collection<VenteMedicament> venteMedicaments;
