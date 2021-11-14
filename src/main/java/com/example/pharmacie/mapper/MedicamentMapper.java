@@ -7,13 +7,14 @@ import org.mapstruct.*;
 
 @Mapper(componentModel = "spring")
 public interface MedicamentMapper {
+
     Medicament toModel(MedicamentDto medicamentDto);
+
     @Mappings({
             @Mapping(target = "familleId", source = "famille.id"),
             @Mapping(target = "familleName", source = "famille.name")
 
     })
-
     MedicamentDto toDto(Medicament medicament);
 
     @AfterMapping

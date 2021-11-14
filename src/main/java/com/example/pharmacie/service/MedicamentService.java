@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 
@@ -23,13 +24,7 @@ public class MedicamentService {
     }
 
 
-
-
-    public Medicament addMedicament(Medicament medicament) {
-        return medicamentRepository.save(medicament);
-    }
-
-    public List<Medicament> getListMedicament() {
+    public Collection<Medicament> getListMedicament() {
        return medicamentRepository.findAll();
     }
 

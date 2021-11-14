@@ -31,18 +31,16 @@ public class MedicamentController {
     }
         @GetMapping
     public List<MedicamentDto> getListMedicament(){
-        List<MedicamentDto> medicamentDtos = new ArrayList<>();
-            List<Medicament> listMedicament = medicamentService.getListMedicament();
-            for (int i = 0; i < listMedicament.size(); i++) {
-                medicamentDtos.add(medicamentMapper.toDto(listMedicament.get(i)));
-            }
-            return medicamentDtos;
-//
-//            return medicamentService.getListMedicament().stream()
-//                    .map(m -> medicamentMapper.toDto(m))
-//                    .collect(Collectors.toList());
+//        List<MedicamentDto> medicamentDtos = new ArrayList<>();
+//            List<Medicament> listMedicament = medicamentService.getListMedicament();
+//            for (int i = 0; i < listMedicament.size(); i++) {
+//                medicamentDtos.add(medicamentMapper.toDto(listMedicament.get(i)));
+//            }
+//            return medicamentDtos;
+            return medicamentService.getListMedicament().stream()
+                    .map(medicament -> medicamentMapper.toDto(medicament))
+                    .collect(Collectors.toList());
     }
-
 
 
 //    @Autowired
