@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
@@ -17,8 +16,7 @@ public class VenteDto {
     private Long id;
     private LocalDateTime dateDeVente;
     private Long medId;
-    private String medName;
-    private String stockId;
-    private String stockName;
+    private Long stockId;
+    private int quantity;
 
 }

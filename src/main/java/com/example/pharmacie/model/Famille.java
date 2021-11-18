@@ -15,6 +15,7 @@ public class Famille {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
     @OneToMany(mappedBy = "famille")
     @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
     private Collection<Medicament> medicaments;

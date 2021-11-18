@@ -10,9 +10,6 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
 public class StockMedicament {
     @Id
@@ -27,8 +24,45 @@ public class StockMedicament {
     @ManyToOne
     private Stock stock;
 
-}
+    public StockMedicament() {
+    }
 
-//    @OneToMany(mappedBy = "stockMedicament")
-//    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
-//    private Collection<VenteMedicament> venteMedicaments;
+    public StockMedicament(Long id, int quantity, Medicament medicament, Stock stock) {
+        this.id = id;
+        this.quantity = quantity;
+        this.medicament = medicament;
+        this.stock = stock;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Medicament getMedicament() {
+        return medicament;
+    }
+
+    public void setMedicament(Medicament medicament) {
+        this.medicament = medicament;
+    }
+
+    public Stock getStock() {
+        return stock;
+    }
+
+    public void setStock(Stock stock) {
+        this.stock = stock;
+    }
+}

@@ -25,7 +25,8 @@ public class MedicamentService {
 
 
     public Collection<Medicament> getListMedicament() {
-       return medicamentRepository.findAll();
+
+        return medicamentRepository.findAll();
     }
 
     public Medicament updateMedicament(Medicament medicament){

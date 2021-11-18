@@ -16,9 +16,9 @@ public class Stock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
-    @OneToMany(mappedBy = "stock")
-    @JsonProperty(access= JsonProperty.Access.WRITE_ONLY)
-    private Collection<StockMedicament> StockMedicaments;
+
+
 
 }

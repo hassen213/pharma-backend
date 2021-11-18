@@ -4,14 +4,12 @@ import com.example.pharmacie.dto.MedicamentDto;
 //import com.example.pharmacie.mapper.MedicamentMapper;
 import com.example.pharmacie.mapper.MedicamentMapper;
 import com.example.pharmacie.model.Medicament;
-import com.example.pharmacie.repository.MedicamentRepository;
 import com.example.pharmacie.service.MedicamentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
